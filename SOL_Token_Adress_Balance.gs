@@ -1,4 +1,4 @@
-function getSolBalance(tokenAddress, walletAddress) {
+function getSolBalance(contractAddress, walletAddress) {
   const url = `https://api.mainnet-beta.solana.com`;
   const data = {
       "jsonrpc": "2.0", 
@@ -7,7 +7,7 @@ function getSolBalance(tokenAddress, walletAddress) {
       "params": [
           walletAddress,
           {
-            "mint": tokenAddress
+            "mint": contractAddress
           },
           {
             "encoding": "jsonParsed"
@@ -16,7 +16,7 @@ function getSolBalance(tokenAddress, walletAddress) {
   };
 
   const options =  {
-    'method' : 'post',
+    'method': 'post',
     'muteHttpExceptions': true,
     'contentType': 'application/json',
     'payload': JSON.stringify(data)
